@@ -14,12 +14,12 @@ const usersTable = (sequelize, DataTypes) => {
         underscored: true,
     });
 
-    /* usersTable.associate = (models) => {
-        usersTable.belongsTo(models.blog_posts, {
-            foreignKey: 'user_id',
-            as: 'blog_posts',
-        })
-    } */
+        usersTable.associate = (models) => {
+        usersTable.hasMany(models.BlogPost, {
+            foreignKey: 'id',
+            as:'blog_posts',
+        });
+    }
     return usersTable;
 };
 module.exports = usersTable;
