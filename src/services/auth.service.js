@@ -30,7 +30,7 @@ const validateLogin = async ({ email, password }) => {
 
     if (!user || user.password !== password) {
         return { type: 400, message: 'Invalid fields' };
-    }
+    } 
 
     const { password: _, ...userWithoutPassword } = user.dataValues;
     const token = jwtUtil.createToken(userWithoutPassword);
