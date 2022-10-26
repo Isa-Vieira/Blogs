@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false,
     });
 
-   /*  usersTable.associate = (models) => {
-        usersTable.belongsTo(models.post_categories, {
+     modelsCategory.associate = (models) => {
+        modelsCategory.belongsTo(models.Category, {
             foreignKey: 'category_id',
             as: 'posts_categories',
         });
-} */
+} 
 return modelsCategory;
 }
