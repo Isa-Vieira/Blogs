@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false,
     });
 
-     modelsCategory.associate = (models) => {
+     /* modelsCategory.associate = (models) => {
         modelsCategory.belongsTo(models.Category, {
             foreignKey: 'category_id',
             as: 'posts_categories',
         });
-} 
+}  */
 return modelsCategory;
 }

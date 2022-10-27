@@ -2,7 +2,6 @@ const { Category } = require('../models');
 
 const createCategoriesService = async (dado) => {
     const { name } = dado;
-    console.log(name);
 
     if (!name) {
      return { type: 400, message: { message: '"name" is required' } };
@@ -12,6 +11,13 @@ const createCategoriesService = async (dado) => {
     return { type: 201, message: categories };
 };
 
+const createGetCategories = async () => {
+  const id = await Category.findAll();
+  
+ return { type: 200, message: id };
+};
+
 module.exports = {
     createCategoriesService,
+    createGetCategories,
 };

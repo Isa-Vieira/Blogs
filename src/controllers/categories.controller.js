@@ -7,6 +7,12 @@ const createCategoriesController = async (req, res) => {
     return res.status(recebeNewCategories.type).json(recebeNewCategories.message);
   };
 
+  const categoriesGetAll = async (_req, res) => {
+    const categoriesGet = await categoriesService.createGetCategories();
+    return res.status(categoriesGet.type).json(categoriesGet.message);
+    };
+
   module.exports = {
     createCategoriesController,
+    categoriesGetAll,
   };
