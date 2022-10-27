@@ -20,15 +20,20 @@ const serviceGetAll = async () => {
     return { type: 200, message: user };
 };
 
-/* const serviceGetId = async (id) => {
-    const user = await User.findAll({
-        where: { id }
+const serviceGetId = async (id) => {
+    const user = await User.findOne({
+        where: { id },
          attributes: { exclude: ['password'] },
-    });
-    return { type: 200, message: { user } };
-}; */
+        });
+
+        if (!user) {
+        return { type: 404, message: { message: 'User does not exist' } };
+        }
+        return { type: 200, message: user };
+};
 
 module.exports = {
     createUserService,
     serviceGetAll,
+    serviceGetId,
 };

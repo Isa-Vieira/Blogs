@@ -12,12 +12,14 @@ const userGet = await userService.serviceGetAll();
 return res.status(userGet.type).json(userGet.message);
 };
 
-/* const userId = async (req, res) => {
-    const { id } = req.body;
-    const userGet = await userService.createUserService();
-    return res.status(userGet.status).json(userGet.message);
-    }; */
+const userId = async (req, res) => {
+    const { id } = req.params;
+    const userGet = await userService.serviceGetId(id);
+    return res.status(userGet.type).json(userGet.message);
+};
+
   module.exports = {
     createUser,
     userGetAll,
+    userId,
 };

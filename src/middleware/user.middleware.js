@@ -26,8 +26,19 @@ const validaPassword = async (req, res, next) => {
     next();
 };
 
+const validaId = async (req, res, next) => {
+    const { id } = req.body;
+    if (!id) {
+        return res.status(404).json({
+            message: 'User does not exist',
+          });
+    }
+    next();
+};
+
 module.exports = { 
     validaDisplayName,
     validaEmail,
     validaPassword,
+    validaId,
 };
