@@ -25,6 +25,7 @@ const validaPassword = async (req, res, next) => {
     }
     next();
 };
+
 module.exports = { 
     validaDisplayName,
     validaEmail,

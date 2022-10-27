@@ -13,7 +13,22 @@ const createUserService = async (dadosDoObj) => {
     return { type: 201, message: { token } };
 };
 
+const serviceGetAll = async () => {
+    const user = await User.findAll({
+         attributes: { exclude: ['password'] },
+    });
+    return { type: 200, message: user };
+};
+
+/* const serviceGetId = async (id) => {
+    const user = await User.findAll({
+        where: { id }
+         attributes: { exclude: ['password'] },
+    });
+    return { type: 200, message: { user } };
+}; */
+
 module.exports = {
     createUserService,
-    
+    serviceGetAll,
 };
