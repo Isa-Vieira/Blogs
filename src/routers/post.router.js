@@ -8,4 +8,6 @@ const router = express.Router();
 
 router.get('/', validateToken, postController.createPostController);
 
+router.get('/:id', validateToken, postController.postControllerId);
+
 module.exports = router;

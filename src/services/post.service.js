@@ -12,16 +12,22 @@ const getPost = async () => {
     return { type: 200, message: result };
 };  
 
-/* const getPost = async () => BlogPost.findAll({
-    include: [
-      { model: User, as: 'users', attributes: { exclude: ['password'] } },
-      { model: PostCategory,
-as: 'categories', 
-      attributes: ['id', 'name'],
-through: { attributes: [] } },
-    ],
-  }); */
+const postGetId = async (id) => {
+    const post = await BlogPost.findOne({
+        where: { id },
+        include: [
+            { model: User, as: 'user', attributes: { exclude: ['password'] } },
+            { model: Category, as: 'categories' },
+              ],
+        });
+
+        if (!post) {
+        return { type: 404, message: { message: 'Post does not exist' } };
+        }
+        return { type: 200, message: post };
+};
 
   module.exports = {
     getPost,
+    postGetId,
   };
