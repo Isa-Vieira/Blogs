@@ -10,7 +10,14 @@ const createPostController = async (_req, res) => {
     const postGet = await postService.postGetId(id);
     return res.status(postGet.type).json(postGet.message);
 };
+
+const createPutController = async (req, res) => {
+    const { id } = req.params;
+    const recebeNewPut = await postService.putPostId(id, req.body);
+    return res.status(recebeNewPut.type).json(recebeNewPut.message);
+  };
   module.exports = {
   createPostController,
   postControllerId,
+  createPutController,
   };

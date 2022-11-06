@@ -27,7 +27,26 @@ const postGetId = async (id) => {
         return { type: 200, message: post };
 };
 
+const putPostId = async (id) => {
+    const put = await BlogPost.findAll({
+        where: { id },
+        include: [
+            { model: User, as: 'user', attributes: { exclude: ['password'] } },
+            { model: Category, as: 'categories' },
+              ],
+        });
+
+        if (!put) {
+        return { type: 401, message: { message: 'Unauthorized user' } };
+        }
+        if (!put) {
+        return { type: 400, message: { message: 'Some required fields are missing' } };
+        }
+        return { type: 200, message: put };
+};
+
   module.exports = {
     getPost,
     postGetId,
+    putPostId,
   };
