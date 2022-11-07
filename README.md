@@ -98,6 +98,8 @@ Foi desenvolvida uma aplicação em `Node.js` usando o pacote `sequelize` para f
   * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-022-b-project-blogs-api/pulls) e confira que o seu _Pull Request_ está criado
   
   <br />
+  </details>
+  
    # Requisitos 
 
 ## 1 - Crie migrations para as tabelas `users`, `categories`, `blog_posts`, `posts_categories`
