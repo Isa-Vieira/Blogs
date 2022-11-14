@@ -6,3 +6,4 @@ E desenvolver endpoints que estarão conectados ao seu banco de dados seguindo o
 
 Diagrama de Entidade-Relacionamento
 Para orientar a construção das tabelas através do ORM, utilize o DER a seguir:
+![diagrama 2](https://user-images.githubusercontent.com/102389971/201717591-55a4790a-b244-4a60-8d7b-25867f6ed7a9.png)
